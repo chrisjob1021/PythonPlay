@@ -117,7 +117,6 @@ ll.printList()
 print "\n\n"
 
 #test get
-
 print ll.get(5)
 print ll.get(5).val
 
