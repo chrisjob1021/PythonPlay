@@ -4,6 +4,7 @@ get number of log entries between dates
 '''
 
 import re
+import sys
 
 def fetch_chunks(file, chunk_size=4096):
     return iter(lambda: file.read(4096), '')
@@ -24,6 +25,8 @@ def sepsplit(chunk, separator):
 with open("test.log") as f:
     dates_dict = { }
     chunks = fetch_chunks(f)
+    print type(chunks)
+
     for chunk in sepsplit(chunks, "\n"):
         for line in chunk:
             for match in re.findall('([0-9]{2}/[A-Za-z]{3})/[0-9:]+', line):
