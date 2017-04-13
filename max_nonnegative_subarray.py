@@ -17,6 +17,9 @@ NOTE 2: If there is still a tie, then return the segment with minimum starting i
 '''
 
 class Solution:
+    # Space: O(n)
+    # Time: O(n)
+
     # @param A : list of integers
     # @return a list of integers
     def maxset(self, A):
@@ -27,8 +30,10 @@ class Solution:
             if len(sol) > 0:
                 solL.append(sol)
 
+        # Space: O(n)
         solL = [ ]
         sol = [ ]
+        # Time: O(n)
         for i in xrange(len(A)):
             if A[i] >= 0:
                 sol.append(A[i])
@@ -39,8 +44,10 @@ class Solution:
 
         addSol(sol)
 
+        # Space: O(n)
         solD = {}
 
+        # Time: O(n)
         for i in xrange(len(solL)):
             sumSub = sum(solL[i])
             if sumSub in solD:
