@@ -57,5 +57,28 @@ class Solution:
 		sequences = getAlternatingSequences(n)
 		return findLongestSequence(sequences)
 
+	# Time: O(b) b = length of sequence
+	# Space: O(1)
+	def longestSequence2(self, n):
+		if ~n == 0: # it's already all 1s
+			return len('{0:b}'.format(n))
+		
+		current = 0
+		previous = 0
+		maxL = 1 # can always flip 1 bit to get a sequence of 1
 
-print Solution().longestSequence(1775)
+		while n != 0: # keep going until we shift the bits to 0
+			if (n & 1) == 1: # current bit is 1, increment the count
+				current += 1
+			elif (n & 1) == 0:
+				# if next bit is 1, we can merge previous and the upcoming current 
+				# otherwise, if there are two or more 0s, we cannot merge and we discard this current segment (because previous loop factored it into maxL)
+				previous = 0 if n & 2 == 0 else current 
+				current = 0
+
+			maxL = max(current + previous + 1, maxL)
+			n = n >> 1
+
+		return maxL
+
+print Solution().longestSequence2(1775) # expect 8
