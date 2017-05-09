@@ -1,0 +1,11 @@
+id,purpose,amount
+1,transport,2000
+2,transport,1500
+3,transport,2500
+4,business,2000
+5,business,3000
+6,business,6000
+7,special_occasion,2000
+8,special_occasion,3000
+9,special_occasion,4000
+10,other,2000

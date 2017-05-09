@@ -1,0 +1,1 @@
+awk -F ',' 'NR>1 {types[$2] += $3} END{for (i in types) print i, types[i]}' loans.csv 
