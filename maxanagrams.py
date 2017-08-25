@@ -17,16 +17,27 @@ class Solution(object):
         
         return d1 == d2
 
+#    def maxAnagram(self, words):
+#    	res = { } 
+#
+#    	import itertools
+#
+#    	for word in itertools.permutations(words, 2):
+#    		print word[0], word[1]
+#    		if self.isAnagram(word[0], word[1]):
+#    			res[word[0]] = res.get(word[0], 1) + 1
+#
+#    	return sorted(res.values(), reverse=True)[0]
     def maxAnagram(self, words):
-    	res = { } 
+        d = { }
 
-    	import itertools
+        for word in words:
+            s = ''.join(sorted([c.lower() for c in word]))
 
-    	for word in itertools.permutations(words, 2):
-    		print word[0], word[1]
-    		if self.isAnagram(word[0], word[1]):
-    			res[word[0]] = res.get(word[0], 1) + 1
+            d[s] = d.get(s, 0) + 1
 
-    	return sorted(res.values(), reverse=True)[0]
+        print [k for k in d.keys() if d.get(k) > 1]
+        return max(d.values())
 
 print Solution().maxAnagram(["aaaa", "AAAA", "abac", "baac", "caba", "cat"])
+print Solution().maxAnagram(["eat", "tea", "tan", "ate", "nat", "bat"])
