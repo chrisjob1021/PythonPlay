@@ -3,3 +3,6 @@
 *.pyc
 *.icloud
 testfile
+/leetcode/test.py
+
+/leetcode/test2.py
